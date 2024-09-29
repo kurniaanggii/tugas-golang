@@ -32,9 +32,16 @@ func (mul Multiplication) Calculate() int {
 
 func main() {
 	var wg sync.WaitGroup
+	var a, b int
 
-	add := Addition{a: 3, b: 4}
-	mul := Multiplication{a: 3, b: 4}
+	// Meminta input dari pengguna
+	fmt.Print("Masukkan nilai a: ")
+	fmt.Scan(&a)
+	fmt.Print("Masukkan nilai b: ")
+	fmt.Scan(&b)
+
+	add := Addition{a: a, b: b}
+	mul := Multiplication{a: a, b: b}
 
 	// Simpan fungsi performOperation dalam variabel
 	performOperation := func(op Operation, description string, wg *sync.WaitGroup) {
